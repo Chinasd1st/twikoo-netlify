@@ -5,7 +5,7 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"                    # Root where package.json lives
     schedule:
-      interval: "daily"               # Or "weekly" if you prefer fewer checks
+      interval: "weekly"               # Or "weekly" if you prefer fewer checks
       time: "04:00"                   # UTC time (hh:mm format); e.g., 04:00 UTC = ~13:00 JST
       timezone: "Asia/Shanghai"          # Your local timezone (IANA format)
     open-pull-requests-limit: 5       # Limit to avoid spam
