@@ -1,25 +1,19 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
 # .github/dependabot.yml
 version: 2
 
 updates:
-  - package-ecosystem: "npm"          # 针对 npm / package.json
-    directory: "/"                    # 项目根目录（package.json 所在位置）
+  - package-ecosystem: "npm"
+    directory: "/"                    # Root where package.json lives
     schedule:
-      interval: "daily"               # 每天检查一次（可改成 "weekly" 减少通知）
-    time: "04:00"                     
-    timezone: "Asia/Shanghai"         
-    open-pull-requests-limit: 5       # 最多同时开 5 个 PR（防止过多）
+      interval: "daily"               # Or "weekly" if you prefer fewer checks
+      time: "04:00"                   # UTC time (hh:mm format); e.g., 04:00 UTC = ~13:00 JST
+      timezone: "Asia/Shanghai"          # Your local timezone (IANA format)
+    open-pull-requests-limit: 5       # Limit to avoid spam
     labels:
-      - "dependencies"                # 自动加标签，方便过滤
-      - "twikoo"                      # 可选，自定义标签
+      - "dependencies"
+      - "twikoo"
     commit-message:
-      prefix: "chore(deps)"           # commit 消息前缀，更规范
-      include: "scope"                # 包含依赖范围
-      
-    allow:
+      prefix: "chore(deps)"
+      include: "scope"
+    allow:                            # Only auto-update this one package
       - dependency-name: "twikoo-netlify"
